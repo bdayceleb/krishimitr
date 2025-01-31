@@ -1,0 +1,77 @@
+{% extends 'layout.html' %} {% block body %}
+
+
+<style>
+  body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("https://apps.tsn.go.tz/public/uploads/190c8a653118e4f51e3c0471a59c57b5.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<!-----------
+<div class="w3-display-container w3-text-white">
+  <img src="https://apps.tsn.go.tz/public/uploads/190c8a653118e4f51e3c0471a59c57b5.jpg" class="w3-opacity" alt="Lights" style="width:100%">
+----->
+<div class="bg">
+  <br /><br />
+  <div class="w3-section">
+  <h2 style="text-align: center; margin: 0px; color: black">
+    <b>Find out which disease has been caught by your plant</b>
+  </h2>
+  <br />
+  <br>
+
+<!---------  
+<div style="
+    width: 500px;
+    height: 80rem;
+    margin: 0px auto;
+    color: black;
+    border-radius: 25px;
+    padding: 10px 10px;
+    font-weight: bold;
+  ">
+-->
+  
+
+<div class="w3-content w3-large w3-white w3-center w3-padding-32" style="padding-top: 400px;width:450px;opacity:0.8;">
+  <form class="form-signin" method=post enctype=multipart/form-data>
+
+    <h2 class="h4 mb-3 font-weight-normal"><b>Please Upload The Image</b></h2>
+    <div class="w3-container w3-center w3-padding-32" style="padding-left: 100px;">
+    <input type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)" style="font-weight: bold;">
+    </div>
+    <br>
+    <br>
+    <img id="output-image" class="rounded mx-auto d-block" />
+    <button class="w3-bar-item w3-button w3-large w3-round-xxlarge w3-blue w3-hover-black w3-margin-right" type="submit" style="font-weight: bold;width:150px;">Predict</button>
+
+  </form>
+</div>
+
+<script type="text/javascript">
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var output = document.getElementById('output-image')
+      output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+</script>
+
+</div>
+</div>
+</div>
+{% endblock %}
